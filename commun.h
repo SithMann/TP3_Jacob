@@ -1,6 +1,6 @@
 #ifndef _COMMUN_H_
 #define _COMMUN_H_
-
+ 
 #include <stdio.h>
 
 /* Definition du type booleen */
