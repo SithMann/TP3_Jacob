@@ -20,13 +20,11 @@ static struct option longopts[] =
 
   {0, 0, 0, 0}
 };
+ 
 
-#define N atoi(argv[1]) 
-
-int
-main(int argc, char * argv[]) 
+int main(int argc, char * argv[]) 
 {
-
+  int N = atoi(argv[1]);
   err_t noerr = OK; 
 
   individu_t ** individus = NULL  ; 
@@ -43,17 +41,21 @@ main(int argc, char * argv[])
   /*Debut de test avec les options*/
   int opt;
   int verbose = 0 ;
-
+    printf("%d", N);
   /* Section options */
   while ((opt = getopt_long(argc, argv, "v", longopts, NULL)) != -1 ){
-        if(opt = 'v') verbose = 1;
+        if(opt == 'v') verbose = 1;
   }
+    printf("%s", argv[2]);
+
   //argc -= optind ;
   //argv += optind ;
 
   /* Fin des tests avec options */
   if(verbose)
     printf( "Debut du programme des test sur les listes de %d objets homogenes\n" , N ) ; 
+
+
 
 
  /* ---------- */
@@ -64,7 +66,8 @@ main(int argc, char * argv[])
   if(verbose)
     printf( "\nCreations des variables de travail\n" ) ;
   
-  if(verbose) printf( "\tindividus..." ) ; fflush(stdout) ;
+  if(verbose) printf( "\tindividus..." ) ; 
+  fflush(stdout) ;
   char prenom[128] ;
   char nom[128] ; 
   for( i=0 ; i<N ; i++ ) 
@@ -75,14 +78,16 @@ main(int argc, char * argv[])
     }
   if(verbose) printf("OK\n"); 
 
-  if(verbose) printf( "\tfractions..." ) ; fflush(stdout) ;
+  if(verbose) printf( "\tfractions..." ) ; 
+  fflush(stdout) ;
   for( i=0 ; i<N ; i++ ) 
     {
       fractions[i] = fraction_creer( N-i , N-i+1 ) ; 
     }
   if(verbose) printf("OK\n");
 
-  if(verbose) printf( "\tstrings..." ) ; fflush(stdout) ;
+  if(verbose) printf( "\tstrings..." ) ; 
+  fflush(stdout) ;
   char string[128] ;
   for( i=0 ; i<N ; i++ ) 
     {
@@ -175,7 +180,9 @@ main(int argc, char * argv[])
 
   if(verbose) printf( "\nDestructions des variables de travail\n" ) ;
 
-  if(verbose) printf( "\tindividus..." ) ; fflush(stdout) ; 
+  if(verbose) printf( "\tindividus..." ) ; 
+  
+  fflush(stdout) ; 
   for( i=0 ; i<N ; i++ ) 
     {
       if( ( noerr = individu_detruire( &individus[i] ) ) )
@@ -188,7 +195,8 @@ main(int argc, char * argv[])
   if(verbose) printf("OK\n"); 
 
 
-  if(verbose) printf( "\tfractions..." ) ; fflush(stdout) ; 
+  if(verbose) printf( "\tfractions..." ) ; 
+  fflush(stdout) ; 
   for( i=0 ; i<N ; i++ ) 
     {
       if( ( noerr = fraction_detruire( &fractions[i] ) ) )
@@ -201,7 +209,8 @@ main(int argc, char * argv[])
   if(verbose) printf("OK\n"); 
 
   
-  if(verbose) printf( "\tstrings..." ) ; fflush(stdout) ; 
+  if(verbose) printf( "\tstrings..." ) ; 
+  fflush(stdout) ; 
   for( i=0 ; i<N ; i++ ) 
     {
       if( ( noerr =string_detruire( &strings[i] ) ) )
