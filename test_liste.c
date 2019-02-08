@@ -106,14 +106,14 @@ int main(int argc, char * argv[])
     }
 
   if(verbose) printf( "Test affichage liste d'individus AVANT tri \n" ) ;
-  liste_afficher( liste , ' ' ) ; 
+  liste_afficher( liste ,(void (*)(void * const))individu_afficher) ; 
   printf( "\n");
 
   if(verbose) printf( "Test Tri de la liste des individus\n" );
   liste_trier( liste  ) ;
 
   if(verbose) printf( "Test affichage liste d'individus APRES tri\n" ) ;
-  liste_afficher( liste , ' ' ) ; 
+  liste_afficher( liste , (void (*)(void * const))individu_afficher ) ; 
   printf( "\n");
  
   if(verbose) printf( "Test destruction liste d'individus\n" ) ;
@@ -131,14 +131,14 @@ int main(int argc, char * argv[])
     }
 
   if(verbose) printf( "Test affichage liste de fractions AVANT tri\n" ) ;
-  liste_afficher( liste , ' ' ) ; 
+  liste_afficher( liste , (void (*)(void * const))fraction_afficher ) ; 
   printf( "\n");
 
   if(verbose) printf( "Test Tri de la liste des fractions\n" );
   liste_trier( liste ) ;
 
   if(verbose) printf( "Test affichage liste des fractions APRES tri\n" ) ;
-  liste_afficher( liste ,  ' ' ) ; 
+  liste_afficher( liste ,  (void (*)(void * const))fraction_afficher ) ; 
   printf( "\n");
  
   if(verbose) printf( "Test destruction liste de fractions\n" ) ;
@@ -157,14 +157,14 @@ int main(int argc, char * argv[])
     }
 
   if(verbose) printf( "Test affichage liste de strings AVANT tri\n" ) ;
-  liste_afficher( liste ,  ' ' ) ; 
+  liste_afficher( liste ,  (void (*)(void * const))string_afficher ) ; 
   printf( "\n");
  
   if(verbose) printf( "Test Tri de la liste des strings\n" );
   liste_trier( liste  ) ;
   
   if(verbose) printf( "Test affichage liste des strings APRES tri\n" ) ;
-  liste_afficher( liste ,  ' ' ) ; 
+  liste_afficher( liste ,  (void (*)(void * const))string_afficher ) ; 
   printf( "\n");
   
   if(verbose) printf( "Test destruction liste de strings\n" ) ;

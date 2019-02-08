@@ -80,7 +80,7 @@ extern err_t liste_detruire( liste_t ** liste , ...) ;
  * Affichage d'une liste sur la sortie standard
  */
 
-extern void liste_afficher( liste_t * const liste , ... );
+extern void liste_afficher( liste_t * const liste , void (*aff)(void * const));
 
 /*!
  * @}

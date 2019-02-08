@@ -148,9 +148,9 @@ err_t liste_detruire( liste_t ** liste , ... )
  */
 
 extern 
-void liste_afficher( liste_t * const liste , void (*aff)(void *))
+void liste_afficher( liste_t * const liste , void (*aff)(void * const))
 {
-  for(int i = 0; i < (*liste)->nb; i++) aff(liste_elem_lire((*liste), i));
+  for(int i = 0; i < liste->nb; i++) aff(liste_elem_lire(liste, i));
   return ;
 }
 
